@@ -101,6 +101,28 @@
         }
     </style>
 
+    <script>
+        function checkOrder()
+        {
+            if($("#order-name").val() =="")
+            {
+                $("#order-name").focus();
+                alert("주문자명을 입력하세요!");
+            }
+            else if($("#order-phone").val() == "")
+            {
+                $("#order-phone").focus();
+                alert("주문자 연락처를 입력하세요!");
+            }
+            else if($("#order-address").val() == "")
+            {
+                $("#order-address").focus();
+                alert("주소를 입력하세요!");
+            }
+        }
+
+    </script>
+
 
 </head>
 
@@ -251,7 +273,7 @@
                                 <h5>주문자 명</h5>
                             </div>
                             <div class="col-sm-8">
-                                <input type="name" name="name" style="width: 10cm;">
+                                <input type="name" name="name" id = "order-name" style="width: 10cm;">
                             </div>
                         </div>
                         <div class="row">
@@ -259,7 +281,7 @@
                                 <h5>주문자 연락처</h5>
                             </div>
                             <div class="col-sm-8">
-                                <input type="number" name="phone" style="width: 10cm;">
+                                <input type="number" name="phone" id = "order-phone"style="width: 10cm;">
                             </div>
                         </div>
                         <div class="row">
@@ -267,7 +289,7 @@
                                 <h5>주소</h5>
                             </div>
                             <div class="col-sm-8">
-                                <input type="address" name="address" style="width: 10cm;">
+                                <input type="address" name="address" id = "order-address"style="width: 10cm;">
                             </div>
                         </div>
                         <div class="row">
@@ -275,15 +297,14 @@
                                 <h5>결제수단</h5>
                             </div>
                             <div class="col-sm-8">
-                                <input type="radio" name="payment" value="1">계좌이체
-                    <input type="radio" name="payment" value="2">신용카드  
-                    <input type="radio" name="payment" value="3">문화상품권  
+                                <input type="radio"  checked="checked" name="payment" value="1">계좌이체
+                                <input type="radio" name="payment" value="2">신용카드  
                             </div>
                         </div>
                     </div>
 
                     <br>
-                    <button type="button" class="btn btn-primary btn-lg">결제하기</button>
+                    <button type="button" onclick="checkOrder()" class="btn btn-primary btn-lg">결제하기</button>
                 </div>
             </div>
             <div class="col-4"></div>
