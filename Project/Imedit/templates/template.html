@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Start Head -->
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Imedit - Image Edition Website</title>
+
+  <link rel="stylesheet" href="../static/css/style.min.css">
+  <link rel="stylesheet" href="../static/css/modules.css">
+
+  <!-- Canonical URL usage -->
+  <link rel="canonical" href="https://aperitif.io/">
+
+  <!-- Facebook Open Graph -->
+  <meta property="og:url" content="https://aperitif.io/" />
+  <meta property="og:title" content="Aperitif | The web template generator" />
+  <meta property="og:description" content="Aperitif is a rapid web template generation tool." />
+  <meta property="og:image" content="https://aperitif.io/img/aperitif-facebook.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@Aperitif">
+  <meta name="twitter:creator" content="@Aperitif">
+  <meta name="twitter:title" content="Aperitif - The web template generator">
+  <meta name="twitter:description" content="Aperitif is a rapid web template generation tool.">
+  <meta name="twitter:image" content="https://aperitif.io/img/aperitif-card.png">
+
+  <!-- Google Structured Data -->
+  <script type="application/ld+json">
+	{
+	"@context" : "http://schema.org",
+	"@type" : "SoftwareApplication",
+	"name" : "Aperitif",
+	"image" : "https://aperitif.io/img/aperitif-logo.svg",
+	"url" : "https://aperitif.io/",
+	"author" : {
+	  "@type" : "Person",
+	  "name" : "Octavector"
+	},
+	"datePublished" : "2017-MM-DD",
+	"applicationCategory" : "HTML"
+	}
+  </script>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <!-- JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+</head>
+<!-- End Head -->
+
+<body class="default">
+
+  <!--
+START MODULE AREA 1: Hero 1
+-->
+  <section class="MOD_HERO" style="background-image:url(https://unsplash.it/1400/?random)">
+    <div data-layout="_r">
+      <div data-layout="de10">
+        <h1>Imedit</h1>
+        <h3>이미지를 검색하고 편집해보세요!</h3>
+        <!--<a href="#" class="btn">Read more</a>-->
+      </div>
+    </div>
+  </section>
+  <!--
+END MODULE AREA 1: Hero 1
+-->
+  <section class="SEARCH_AREA">
+
+    <div data-layout="_r">
+      <form method="post" onsubmit="return false">
+
+        <input type="text" id="searchWord" class="textbox" placeholder="Search" onkeypress="enterKey()">
+        <button title="Search" type="button" class="button" onclick="getImgBySearch()">
+          <img src="https://cdn.pixabay.com/photo/2016/03/31/19/14/magnifying-glass-1294834_960_720.png"></button>
+
+      </form>
+    </div>
+  </section>
+  <!--
+START MODULE AREA 3: Lightbox Background
+-->
+  <div>
+    <span id="paper" style="cursor: pointer" onclick="openAndClose()">▶</span>
+  </div>
+  <section class="MOD_LIGHTBOXIMGX4BACKGROUND" data-theme="_bgp">
+    <div id="imageResult" data-layout="_r">
+      <div data-layout="al8 de3">
+        <a href="https://unsplash.it/800/600?image=58" class="AP_lightbox" aria-haspopup="true">
+          <figure>
+            <img src="https://unsplash.it/300/300?image=58" alt="" data-theme="_is2">
+            <figcaption>Fig4. Image Caption</figcaption>
+          </figure>
+        </a>
+      </div>
+    </div>
+  </section>
+  <!--
+END MODULE AREA 3: Lightbox Background
+-->
+  <section class="MOD_CUSTOMBOXIMGX4BACKGROUND" data-theme="_bgp">
+    <div data-layout="_r">
+      <div id="orgImg" data-layout="al9 de5">
+
+      </div>
+      <div class="square" data-layout="al9 de5">
+
+        <table>
+          <tr>
+            <td>
+              <button class="toolBtn" name="btn_1" type="button" onclick="crop()"></button>
+            </td>
+            <td>
+              <button class="toolBtn" name="btn_1" type="button" onclick="rotate()"></button>
+            </td>
+            <td>
+              <button class="toolBtn" name="btn_1" type="button"></button>
+            </td>
+            <td rowspan="4" style="width: 20px;">
+
+            </td>
+            <td rowspan="4" colspan="2" id="tool_content">
+
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <button class="toolBtn" name="btn_1" type="button"></button>
+            </td>
+            <td>
+              <button class="toolBtn" name="btn_1" type="button"></button>
+            </td>
+            <td>
+              <button class="toolBtn" name="btn_1" type="button"></button>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <button class="toolBtn" name="btn_1" type="button"></button>
+            </td>
+            <td>
+              <button class="toolBtn" name="btn_1" type="button"></button>
+            </td>
+            <td>
+              <button class="toolBtn" name="btn_1" type="button"></button>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <button class="toolBtn" name="btn_1" type="button"></button>
+            </td>
+            <td>
+              <button class="toolBtn" name="btn_1" type="button"></button>
+            </td>
+            <td>
+              <button class="toolBtn" name="btn_1" type="button"></button>
+            </td>
+          </tr>
+          <tr>
+            <td>
+            </td>
+            <td id="nextTool">
+              <button class="toolBtn" name="btn_1" type="button"></button>
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+              <button>?</button>
+            </td>
+            <td style="padding-left : 3rem;">
+              <button id="applyBtn" type="submit" onclick="modifyImage()">적용하기</button>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div id="modImg" data-layout="al9 de5">
+
+      </div>
+    </div>
+
+  </section>
+  <script src="../static/js/index.js"></script>
+  <script src="../static/js/main.js"></script>
+</body>
+
+</html>
