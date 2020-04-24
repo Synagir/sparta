@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Start Head -->
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Imedit - Image Edition Website</title>
+
+  <link rel="stylesheet" href="../static/css/style.min.css">
+  <link rel="stylesheet" href="../static/css/modules.css">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <!-- JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+</head>
+<!-- End Head -->
+
+<body class="default">
+
+  
+  <section class="MOD_HERO" style="background-image:url(https://unsplash.it/1400/?random)">
+    <div data-layout="_r">
+      <div data-layout="de10">
+        <h1>Imedit</h1>
+        <h3>이미지를 검색하고 편집해보세요!</h3>
+        <!--<a href="#" class="btn">Read more</a>-->
+      </div>
+    </div>
+  </section>
+  
+  <section class="SEARCH_AREA">
+
+    <div data-layout="_r">
+      <form method="post" onsubmit="return false">
+
+        <input type="text" id="searchWord" class="textbox" placeholder="Search" onkeypress="enterKey()">
+        <button title="Search" type="button" class="button" onclick="getImgBySearch()">
+          <img src="https://cdn.pixabay.com/photo/2016/03/31/19/14/magnifying-glass-1294834_960_720.png"></button>
+
+      </form>
+    </div>
+  </section>
+  
+  <section style="background-color: burlywood;">
+    <div id = "keyword_rank" style="margin-top: 1em;margin-bottom: 1em;margin-left: 1em;">
+      가장 많이 찾은 검색어 :
+    </div>
+  </section>
+
+  <div id = "keyword_result_box">
+    <span style="cursor: pointer" onclick="openKeywordResult(true)">▶ 검색결과 열기</span>
+  </div>
+
+  <section class="MOD_LIGHTBOXIMGX4BACKGROUND" data-theme="_bgp"  >
+    <div id="imageResult" data-layout="_r" >
+      <div data-layout="al8 de3">
+       <div style="font-size: 0.9em;">아무런 검색 내용이 없습니다...</div>
+      </div>
+      <div class="transform_page" >
+        <button type="button" class="btn btn-outline-dark pgnBtn" onclick="getPictureByCGS()">◀</button>
+        
+    </div>
+    
+  </section>
+  
+  <!--
+END MODULE AREA 3: Lightbox Background
+-->
+  <!-- style= "display: none;" -->
+  <section id="edit_box" class="MOD_CUSTOMBOXIMGX4BACKGROUND" data-theme="_bgp">
+    <div data-layout="_r" style="margin: 8px auto;">
+      <div id="orgImg" data-layout="al9 de5">
+
+      </div>
+      <div class="square" data-layout="al9 de5">
+
+        <table>
+          <tr>
+            <td>
+              <input class="btn btn-primary" value="Crop" name="btn_1" type="button" onclick="crop()">
+            </td>
+            <td>
+              <input class="btn btn-primary" value="Rotate" name="btn_1" type="button" onclick="rotate()">
+            </td>
+            <td>
+              <input class="btn btn-primary" value="Round" name="btn_1" type="button" onclick="rounded_corners()">
+
+
+            </td>
+            <td rowspan="4" colspan="2" id="tool_content">
+
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input class="btn btn-primary" style="font-size: 9pt;" value="Polaroid" type="button"
+                onclick="polaroid()">
+            </td>
+            <td>
+              <input class="btn btn-primary" style="font-size: 9pt;" value="Torn Edge" name="btn_1" type="button"
+                onclick="torn_edges()">
+            </td>
+            <td>
+              <input class="btn btn-primary" style="font-size: 11pt;" value="Vign" name="btn_1" type="button"
+                onclick="vignette()">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input class="btn btn-primary" value="Circle" name="btn_1" type="button" onclick="circle()">
+            </td>
+            <td>
+              <input class="btn btn-primary" style="font-size: 9pt;" value="Sharpen" name="btn_1" type="button"
+                onclick="sharpen()">
+            </td>
+            <td>
+              <input class="btn btn-primary" value="Blur" name="btn_1" type="button" onclick="blurIMG()">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input class="btn btn-primary" value="Mono" name="btn_1" type="button" onclick="monochrome()">
+            </td>
+            <td>
+              <input class="btn btn-primary" style="font-size: 10pt;" value="Negative" name="btn_1" type="button"
+                onclick="negative()">
+            </td>
+            <td>
+              <input class="btn btn-primary" value="ASCII" name="btn_1" type="button" onclick="asciiToIMG()">
+            </td>
+          </tr>
+          <tr>
+            <td>
+            </td>
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+              <div class="btn btn-dark" style="position: relative;display: inline-block;">
+                <span class="help-box">?</span>
+                <p class="arrow_box">기능을 선택해주세요</p>
+              </div>
+            </td>
+            <td style="padding-left : 3rem;">
+              <button type="button" class="btn btn-warning" id="applyBtn" type="submit"
+                onclick="modifyImage()">적용하기</button>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div id="modImg" data-layout="al9 de5">
+        
+
+      </div>
+    </div>
+
+  </section>
+  <script src="../static/js/index.js"></script>
+  <script src="../static/js/main.js"></script>
+</body>
+
+</html>

@@ -232,7 +232,6 @@ p {
 
 a.btn, button {
   background-color: #4d36bd;
-  color: white;
   text-decoration: none;
   display: inline-block;
   padding: 1em;
@@ -1741,15 +1740,17 @@ form > .button:hover {
   display: none;
 }
 .MOD_CUSTOMBOXIMGX4BACKGROUND [data-layout=_r] {
-  padding: 2rem 1.5rem;
+  padding: 1rem 1.5rem;
 }
 .MOD_CUSTOMBOXIMGX4BACKGROUND [data-layout=_r] > div {
   padding: 0.5rem;
 }
 
 .square{
-  background-color: green;
-  border-radius: 10%;
+  background-color: forestgreen;
+  border-radius: 5%;
+  width: 100%;
+  height: 15em;
 }
 
 
@@ -1761,7 +1762,61 @@ td{
   padding: 2px auto;
 }
 
-.toolBtn{
-  background-color: black;
+.btn-primary{
+  width:72px;
+  height: 38px;
 }
 
+.help-box{
+  cursor: pointer;
+  text-align: center;
+}
+.arrow_box {
+  display: none;
+  position: absolute;
+  padding: 8px;
+  left:10%;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;  
+  border-radius: 8px;
+  background: rgb(96, 67, 224);
+  color: white;
+  font-size: 14px;
+  text-align:left;
+}
+
+.arrow_box:after {
+  position: absolute;
+  bottom: 95%;
+  left: 15%;
+  width: 0;
+  height: 0;
+  margin-left: -10px;
+  border: solid transparent;
+  border-color: rgba(51, 51, 51, 0);
+  border-bottom-color: rgb(96, 67, 224);
+  border-width: 10px;
+  pointer-events: none;
+  content: " ";
+}
+
+.help-box:hover + p.arrow_box{
+  display: block;
+}
+
+.radio_btn{
+  width : 35%;
+}
+
+.vignette_mode{
+  color: white;
+}
+
+.transform_page{
+  display: flex;
+  justify-content: center;
+}
+.pgnBtn{
+  margin-left: 10px;
+  margin-right: 10px;
+}
